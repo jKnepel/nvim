@@ -24,6 +24,20 @@ return {
                     -- thin line between windows, dimmed like the line numbers
                     vim.api.nvim_set_hl(0, "WinSeparator", { link = "LineNr" })
 
+                    -- diagnostic hints (e.g. unused imports) in grey instead of the
+                    -- theme's purple, which is hard to tell apart from the error red;
+                    -- errors stay red and warnings yellow
+                    local grey = vim.api.nvim_get_hl(0, { name = "Grey", link = false }).fg
+                    for _, group in ipairs({
+                        "DiagnosticHint",
+                        "DiagnosticVirtualTextHint",
+                        "DiagnosticFloatingHint",
+                        "DiagnosticSignHint",
+                    }) do
+                        vim.api.nvim_set_hl(0, group, { link = "Grey" })
+                    end
+                    vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { undercurl = true, sp = grey })
+
                     -- Snacks explorer: directories in plain text like files, and the
                     -- filename colored by git state: staged green, unstaged yellow,
                     -- untracked grey (NonText, the Snacks default)
