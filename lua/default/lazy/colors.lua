@@ -37,6 +37,23 @@ return {
                     }) do
                         vim.api.nvim_set_hl(0, group, { link = "Yellow" })
                     end
+
+                    -- gitsigns: the same colors per state as the explorer above
+                    -- (deleted is Removed, the Snacks default)
+                    for group, target in pairs({
+                        GitSignsAdd = "Yellow",
+                        GitSignsChange = "Yellow",
+                        GitSignsChangedelete = "Yellow",
+                        GitSignsDelete = "Removed",
+                        GitSignsTopdelete = "Removed",
+                        GitSignsStagedAdd = "Green",
+                        GitSignsStagedChange = "Green",
+                        GitSignsStagedChangedelete = "Green",
+                        GitSignsStagedDelete = "Green",
+                        GitSignsStagedTopdelete = "Green",
+                    }) do
+                        vim.api.nvim_set_hl(0, group, { link = target })
+                    end
                 end,
             })
 

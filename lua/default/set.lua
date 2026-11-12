@@ -25,7 +25,8 @@ vim.opt.termguicolors = true
 -- 'background' is left unset: nvim detects light/dark from the terminal (OSC 11)
 
 vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
+-- two columns, so a diagnostic (E/W) and a git sign (M/A/S) on the same line both show
+vim.opt.signcolumn = "yes:2"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
