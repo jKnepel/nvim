@@ -25,6 +25,9 @@ vim.opt.termguicolors = true
 -- 'background' is left unset: nvim detects light/dark from the terminal (OSC 11)
 
 vim.opt.scrolloff = 8
+
+-- line,column without the percentage: the scrollbar (lazy/scrollbar.lua) shows the position
+vim.opt.rulerformat = "%-14.(%l,%c%V%)"
 -- two columns, so a diagnostic (E/W) and a git sign (M/A/S) on the same line both show
 vim.opt.signcolumn = "yes:2"
 vim.opt.isfname:append("@-@")
