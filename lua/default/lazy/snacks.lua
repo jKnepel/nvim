@@ -34,6 +34,9 @@ return {
                 -- full screen like netrw, and gone once a file is opened (also for <C-p>)
                 explorer = {
                     auto_close = true,
+                    -- show dotfiles (H toggles) and gitignored files like .env (I toggles)
+                    hidden = true,
+                    ignored = true,
                     -- color folders by the git state of their contents, also when expanded
                     git_status_open = true,
                     jump = { close = true },

@@ -40,8 +40,11 @@ return {
 
                     -- Snacks explorer: directories in plain text like files, and the
                     -- filename colored by git state: staged green, unstaged yellow,
-                    -- untracked grey (NonText, the Snacks default)
+                    -- untracked orange, ignored grey (NonText, the Snacks default).
+                    -- Dotfiles in plain text; a git state still colors them
                     vim.api.nvim_set_hl(0, "SnacksPickerDirectory", { link = "Normal" })
+                    vim.api.nvim_set_hl(0, "SnacksPickerPathHidden", { link = "Normal" })
+                    vim.api.nvim_set_hl(0, "SnacksPickerGitStatusUntracked", { link = "Orange" })
                     vim.api.nvim_set_hl(0, "SnacksPickerGitStatusStaged", { link = "Green" })
                     for _, group in ipairs({
                         "SnacksPickerGitStatusModified",
